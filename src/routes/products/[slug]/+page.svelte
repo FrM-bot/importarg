@@ -8,12 +8,22 @@ import * as Product from '$lib/components/product'
   import { formatNumber } from '$lib/utils';
   import Typography from '$lib/components/ui/typography.svelte';
   import { marked } from 'marked';
+  import { getWhatsAppUrl } from '$lib/utils';
+  
 const { data }: PageProps = $props()
 
 const { product } = data
 
-console.log({product});
-
+const onContact = () => {
+  const wappUrl = getWhatsAppUrl({
+    text: `Hola ImportARG, ¡estoy interesado en el ${product.name}! ¿Podrían darme más detalles?`,
+  })
+    window.open(
+      wappUrl,
+      "_blank",
+      "noopener noreferrer"
+    );
+  }
 
 </script>
 
@@ -50,7 +60,7 @@ console.log({product});
              
           </div>
           <div class="flex space-x-4">
-            <Button class="w-full">
+            <Button class="w-full" onclick={onContact}>
                 Comprar
             </Button>
           </div>

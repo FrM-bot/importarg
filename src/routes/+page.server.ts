@@ -3,6 +3,12 @@ import { getHomeInfo } from '$lib/server/home'
 import { getProducts } from '$lib/server/products'
 import type { PageServerLoad } from './$types'
 
+export const config = {
+  isr: {
+    expiration: 43200
+  },
+}
+
 export const load: PageServerLoad = async () => {
   const { title, description, image } = await getHomeInfo()
   const { products } = await getProducts()

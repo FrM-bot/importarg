@@ -3,6 +3,13 @@ import { getExchangeRate } from '$lib/server/exchange-rate'
 import { getNotionProducts } from '$lib/server/products'
 import type { PageServerLoad } from './$types'
 
+export const config = {
+  isr: {
+    expiration: 1800,
+    allowQuery: [QUERY.brand, QUERY.cursor],
+  },
+}
+
 export const load: PageServerLoad = async ({ url }) => {
   const cursor = url.searchParams.get(QUERY.cursor)
 

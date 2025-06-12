@@ -3,7 +3,6 @@
   import { marked } from "marked";
 
 const { title, description, image } = $props()
-console.log({ title, description, image })
 </script>
 
 <section
@@ -17,7 +16,6 @@ style={`background-image: url(${image})`}
             {title}
           </p>
           {@html marked(description)}
-        <!-- <PortableText value={description} /> -->
       </div>
     </div>
   </div>

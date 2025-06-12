@@ -8,7 +8,6 @@ let currentPath = $state(page.url.pathname)
 
 $effect(() => {
   currentPath = page.url.pathname
-  console.log(currentPath)
 })
 
 const isInHome = $derived(currentPath === routes.home)

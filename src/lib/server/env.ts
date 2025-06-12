@@ -1,6 +1,5 @@
 import { NOTION_DATABASE_ID, NOTION_TOKEN, STRAPI_TOKEN, STRAPI_URL } from '$env/static/private'
 import { object, string } from 'zod'
-console.log({ STRAPI_TOKEN, STRAPI_URL, NOTION_TOKEN, NOTION_DATABASE_ID })
 
 const privateSchema = object({
   STRAPI_TOKEN: string().min(1, {

@@ -1,6 +1,5 @@
 import { env as publicEnv } from '$env/dynamic/public'
 import { object, string } from 'zod'
-console.log({ publicEnv })
 
 const publicSchema = object({
   PUBLIC_PHONE_NUMBER: string().min(1, {

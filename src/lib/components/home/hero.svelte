@@ -7,7 +7,7 @@ const { title, description, image } = $props()
 
 <section
 style={`background-image: url(${image})`}
-  class={cn("bg-position-center bg-cover sm:h-[100dvh] h-[100dvh]")}
+  class={cn("bg-position-[50%_30%] bg-cover sm:h-[100dvh] h-[100dvh]")}
 >
   <div class="w-full h-full bg-radial-[at_50%_50%] from-transparent via-neutral-800/30 to-neutral-900 to-90%">
     <div class="flex h-[100dvh] items-end justify-start overflow-hidden w-full md:shadow-xl">

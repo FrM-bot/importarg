@@ -1,0 +1,24 @@
+{
+  "data": {
+    "id": 3,
+    "documentId": "trhphe0qdv7i6kjpjjny5u37",
+    "siteName": "importARG",
+    "siteDescription": "ImportARG es una empresa que se dedica a la venta de celulares.",
+    "favicon": {
+      "id": 33,
+      "documentId": "eavj5669a2ofief4ckjpj2aj",
+      "url": "https://pub-3ccbecfdb3cc48469f9ec4114e0234ce.r2.dev/Imagen_de_Whats_App_2025_05_25_a_las_18_48_23_4c39787c_removebg_preview_b2528ec918.png"
+    },
+    "defaultSeo": {
+      "id": 3,
+      "metaTitle": "importARG",
+      "metaDescription": "ImportARG es una empresa que se dedica a la venta de celulares.",
+      "metaImage": {
+        "id": 13,
+        "documentId": "dvfjjzu0o17yommmgkiu4por",
+        "url": "https://pub-3ccbecfdb3cc48469f9ec4114e0234ce.r2.dev/hero_cover_074dcff3c3.webp"
+      }
+    }
+  },
+  "meta": {}
+}

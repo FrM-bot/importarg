@@ -45,6 +45,7 @@
 		"@fontsource-variable/onest": "5.2.9",
 		"@sveltejs/adapter-vercel": "5.7.2",
 		"marked": "15.0.12",
+		"vaul-svelte": "^0.3.2",
 		"zod": "3.25.63"
 	}
 }

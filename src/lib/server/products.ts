@@ -1,9 +1,8 @@
 import { formatNotionDatabase } from '$lib/adapters'
 import { env } from '$lib/server/env'
-import type { RootNode } from '$lib/types/renderer'
 import type NotionDatabaseResponse from '$response/notion/products.json'
-import type ProductsResponse from '$response/products/all.json'
-import type ProductResponse from '$response/products/product.json'
+import type ProductsResponse from '$response/strapi/products.json'
+import type ProductResponse from '$response/strapi/product.json'
 import { query } from './strapi'
 
 const properties = {
@@ -86,9 +85,9 @@ export async function getNotionProducts({
   }
 }
 export const getProducts = ({ page = 1, pageSize = 10 } = {}) =>
-  query(
+  query<typeof ProductsResponse>(
     `products?fields[0]=name&fields[1]=slug&fields[2]=price&populate[images][fields][0]=url&pagination[page]=${page}&pagination[pageSize]=${pageSize}`
-  ).then((res: typeof ProductsResponse) => {
+  ).then((res) => {
     const { data, meta } = res
 
     const products = data?.map((product) => ({
@@ -104,7 +103,7 @@ export const getProducts = ({ page = 1, pageSize = 10 } = {}) =>
   })
 
 export const getProduct = (id: string) =>
-  query(`products/${id}?populate[images][fields][0]=url`).then((res: typeof ProductResponse) => {
+  query<typeof ProductResponse>(`products/${id}?populate[images][fields][0]=url`).then((res) => {
     const product = res.data
 
     return {

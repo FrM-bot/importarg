@@ -7,6 +7,9 @@ const socialLinks = {
     },
   ],
 }
+
+const { title } = $props()
+
 </script>
 
 <footer class="bg-neutral-50 border-t">
@@ -44,7 +47,7 @@ const socialLinks = {
         </div>
       </div>
       <div class="mt-8 pt-8 border-gray-200 dark:border-gray-700 text-center text-sm text-gray-500 dark:text-gray-400">
-        © {new Date().getFullYear()} ImportARG.
+        © {new Date().getFullYear()} {title}. Todos los derechos reservados.
       </div>
     </div>
   </footer>

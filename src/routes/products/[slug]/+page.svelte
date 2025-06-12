@@ -9,6 +9,7 @@ import * as Product from '$lib/components/product'
   import Typography from '$lib/components/ui/typography.svelte';
   import { marked } from 'marked';
   import { getWhatsAppUrl } from '$lib/utils';
+  import SEO from '$lib/components/seo.svelte'
   
 const { data }: PageProps = $props()
 
@@ -27,10 +28,18 @@ const onContact = () => {
 
 </script>
 
-<svelte:head>
-  <title>{product.name}</title>
-</svelte:head>
-
+<SEO
+  title={product.name}
+  description={product.description}
+  og={{
+    title: product.name,
+    description: product.description,
+    image: {
+      url: product.images[0],
+      alt: product.name
+    }
+  }}
+/>
 <Container>
     <div class="mb-4 mx-auto inline-block">
         <Button href={routes.home}>

@@ -6,6 +6,7 @@ import Container from '$lib/components/ui/container.svelte'
 import Typography from '$lib/components/ui/typography.svelte'
 import { QUERY } from '$lib/constants'
 import type { PageProps } from './$types'
+import SEO from '$lib/components/seo.svelte'
 
 const { data }: PageProps = $props()
 
@@ -22,9 +23,14 @@ function previous() {
 }
 </script>
 
-<svelte:head>
-  <title>Lista de precios</title>
-</svelte:head>
+<SEO
+  title="Lista de precios"
+  description="Consulta nuestra lista de precios actualizada con los productos disponibles."
+  og={{
+    title: "Lista de precios",
+    description: "Consulta nuestra lista de precios actualizada con los productos disponibles."
+  }}
+/>
 
 <Container class='py-20'>
     <Typography variant="title">

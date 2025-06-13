@@ -35,7 +35,7 @@
       </TableRow>
     </TableHeader>
     <TableBody>
-      {#each products as product (product.id)}
+      {#each products as product (product.model + product.brand + product.storage + product.ram)}
         <TableRow class="last:border-b">
           <TableCell>{capitalize(product.brand)}</TableCell>
           <TableCell>{capitalize(product.model)}</TableCell>

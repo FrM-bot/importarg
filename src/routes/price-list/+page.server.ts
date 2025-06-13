@@ -6,8 +6,8 @@ import type { PageServerLoad } from './$types'
 export const config = {
   isr: {
     expiration: 1800,
-    allowQuery: [QUERY.brand, QUERY.cursor],
-  },
+    allowQuery: [QUERY.brand, QUERY.cursor]
+  }
 }
 
 export const load: PageServerLoad = async ({ url }) => {
@@ -20,8 +20,8 @@ export const load: PageServerLoad = async ({ url }) => {
     cursor: cursor || undefined,
     filter: {
       field: 'brand',
-      q,
-    },
+      q
+    }
   })
 
   const { venta } = await getExchangeRate()
@@ -29,8 +29,8 @@ export const load: PageServerLoad = async ({ url }) => {
   return {
     products: data.map((product) => ({
       ...product,
-      price: product.totalPrice * venta,
+      price: product.totalPrice * venta
     })),
-    pagination,
+    pagination
   }
 }

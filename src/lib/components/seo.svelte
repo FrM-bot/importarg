@@ -7,7 +7,7 @@
       image?: {
         url: string
         alt: string
-      },
+      }
       title: string
       description: string
     }
@@ -16,7 +16,7 @@
 </script>
 
 <svelte:head>
-  <link rel="icon" href={favicon ?? "/favicon.png"} />
+  <link rel="icon" href={favicon ?? '/favicon.png'} />
   <meta property="og:title" content={og?.title} />
   <meta property="og:description" content={og?.description} />
   <meta property="og:url" content={globalThis?.window?.location?.href} />

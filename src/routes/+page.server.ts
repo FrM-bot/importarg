@@ -6,7 +6,7 @@ import type { PageServerLoad } from './$types'
 export const config = {
   isr: {
     expiration: 43200
-  },
+  }
 }
 
 export const load: PageServerLoad = async () => {
@@ -22,7 +22,7 @@ export const load: PageServerLoad = async () => {
       name: product.name,
       slug: product.slug,
       price: product.price * venta,
-      image: product.image,
-    })),
+      image: product.image
+    }))
   }
 }

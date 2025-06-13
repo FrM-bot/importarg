@@ -1,24 +1,22 @@
 <script lang="ts">
-  import { goto } from "$app/navigation"
-  import { BRANDS, QUERY } from "$lib/constants"
-  import { capitalize } from "$lib/utils"
-  import Button from "../ui/button/button.svelte"
-  import * as Select from "../ui/select"
-  import { Trash } from "@lucide/svelte"
+  import { goto } from '$app/navigation'
+  import { BRANDS, QUERY } from '$lib/constants'
+  import { capitalize } from '$lib/utils'
+  import Button from '../ui/button/button.svelte'
+  import * as Select from '../ui/select'
+  import { Trash } from '@lucide/svelte'
 
   const data = BRANDS.map((brand) => ({
     value: brand,
-    label: capitalize(brand),
+    label: capitalize(brand)
   }))
 
-  let url = $derived(
-    new URL(globalThis?.window?.location.href || "http://localhost:5173")
-  )
+  let url = $derived(new URL(globalThis?.window?.location.href || 'http://localhost:5173'))
 
-  let value = $derived(url.searchParams.get(QUERY.brand) || "")
+  let value = $derived(url.searchParams.get(QUERY.brand) || '')
 
   const triggerContent = $derived(
-    data.find((d) => d.value === value)?.label ?? "Selecciona una marca"
+    data.find((d) => d.value === value)?.label ?? 'Selecciona una marca'
   )
 
   function onValueChange(value: string) {
@@ -26,7 +24,7 @@
     url.searchParams.set(QUERY.brand, value)
     url.searchParams.delete(QUERY.cursor)
     goto(url.pathname + url.search, {
-      noScroll: true,
+      noScroll: true
     })
   }
 
@@ -35,7 +33,7 @@
     // url.searchParams.delete(QUERY.brand)
     // url.searchParams.delete(QUERY.cursor)
     goto(url.pathname, {
-      noScroll: true,
+      noScroll: true
     })
   }
 </script>
@@ -54,11 +52,7 @@
         <Select.Group>
           <Select.Label>Marcas</Select.Label>
           {#each data as brand (brand.value)}
-            <Select.Item
-              value={brand.value}
-              label={brand.label}
-              disabled={brand.value === value}
-            >
+            <Select.Item value={brand.value} label={brand.label} disabled={brand.value === value}>
               {brand.label}
             </Select.Item>
           {/each}

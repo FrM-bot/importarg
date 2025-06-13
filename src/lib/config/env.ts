@@ -3,8 +3,8 @@ import { object, string } from 'zod'
 
 const publicSchema = object({
   PUBLIC_PHONE_NUMBER: string().min(1, {
-    message: 'PHONE_NUMBER is required',
-  }),
+    message: 'PHONE_NUMBER is required'
+  })
 })
 
 type PublicEnv = typeof publicSchema._type
@@ -19,5 +19,5 @@ try {
 }
 
 export const env = {
-  PHONE_NUMBER: publicEnvResult.PUBLIC_PHONE_NUMBER,
+  PHONE_NUMBER: publicEnvResult.PUBLIC_PHONE_NUMBER
 }

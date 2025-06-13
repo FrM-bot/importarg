@@ -7,12 +7,12 @@ import { query } from './strapi'
 
 const properties = {
   model: 'title',
-  brand: 'select',
+  brand: 'select'
 } as const
 
 const propertiesQuery = {
   model: 'contains',
-  brand: 'equals',
+  brand: 'equals'
 } as const
 
 type Properties = keyof typeof properties
@@ -22,7 +22,7 @@ type Body = {
   start_cursor?: string
   filter?: {
     property: Properties
-    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     [key: string]: any
   }
 }
@@ -30,7 +30,7 @@ type Body = {
 export async function getNotionProducts({
   cursor,
   pageSize,
-  filter,
+  filter
 }: {
   cursor?: string
   pageSize?: number
@@ -50,28 +50,31 @@ export async function getNotionProducts({
     body.filter = {
       property: fieldAsProperty,
       [properties[fieldAsProperty]]: {
-        [propertiesQuery[fieldAsProperty]]: filter.q,
-      },
+        [propertiesQuery[fieldAsProperty]]: filter.q
+      }
     }
   }
 
-  const response = await fetch(`https://api.notion.com/v1/databases/${env.NOTION_DATABASE_ID}/query`, {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${env.NOTION_TOKEN}`,
-      'Content-Type': 'application/json',
-      'Notion-Version': '2022-06-28',
-    },
-    body: JSON.stringify({
-      ...body,
-      sorts: [
-        {
-          property: 'brand',
-          direction: 'ascending',
-        },
-      ],
-    }),
-  })
+  const response = await fetch(
+    `https://api.notion.com/v1/databases/${env.NOTION_DATABASE_ID}/query`,
+    {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${env.NOTION_TOKEN}`,
+        'Content-Type': 'application/json',
+        'Notion-Version': '2022-06-28'
+      },
+      body: JSON.stringify({
+        ...body,
+        sorts: [
+          {
+            property: 'brand',
+            direction: 'ascending'
+          }
+        ]
+      })
+    }
+  )
 
   const data = (await response.json()) as typeof NotionDatabaseResponse
 
@@ -80,8 +83,8 @@ export async function getNotionProducts({
     pagination: {
       current: cursor,
       next: data.next_cursor,
-      hasMore: data.has_more,
-    },
+      hasMore: data.has_more
+    }
   }
 }
 export const getProducts = ({ page = 1, pageSize = 10 } = {}) =>
@@ -95,7 +98,7 @@ export const getProducts = ({ page = 1, pageSize = 10 } = {}) =>
       name: product.name,
       slug: product.slug,
       price: product.price,
-      image: product.images[0].url,
+      image: product.images[0].url
       // image: `${STRAPI_URL}${product.images[0].url}`
     }))
 

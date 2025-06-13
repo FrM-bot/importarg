@@ -1,25 +1,30 @@
 <script lang="ts">
-import { cn, type WithElementRef } from '$lib/utils'
-import type { HTMLAttributes } from 'svelte/elements'
-import { getEmblaContext } from './context'
+  import { cn, type WithElementRef } from '$lib/utils'
+  import type { HTMLAttributes } from 'svelte/elements'
+  import { getEmblaContext } from './context'
 
-let { ref = $bindable(null), class: className, children, ...restProps }: WithElementRef<HTMLAttributes<HTMLDivElement>> = $props()
+  let {
+    ref = $bindable(null),
+    class: className,
+    children,
+    ...restProps
+  }: WithElementRef<HTMLAttributes<HTMLDivElement>> = $props()
 
-const emblaCtx = getEmblaContext('<Carousel.Item/>')
+  const emblaCtx = getEmblaContext('<Carousel.Item/>')
 </script>
 
 <div
-	bind:this={ref}
-	data-slot="carousel-item"
-	role="group"
-	aria-roledescription="slide"
-	class={cn(
-		"min-w-0 shrink-0 grow-0 basis-full",
-		emblaCtx.orientation === "horizontal" ? "pl-4" : "pt-4",
-		className
-	)}
-	data-embla-slide=""
-	{...restProps}
+  bind:this={ref}
+  data-slot="carousel-item"
+  role="group"
+  aria-roledescription="slide"
+  class={cn(
+    'min-w-0 shrink-0 grow-0 basis-full',
+    emblaCtx.orientation === 'horizontal' ? 'pl-4' : 'pt-4',
+    className
+  )}
+  data-embla-slide=""
+  {...restProps}
 >
-	{@render children?.()}
+  {@render children?.()}
 </div>

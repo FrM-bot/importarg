@@ -3,17 +3,17 @@ import { object, string } from 'zod'
 
 const privateSchema = object({
   STRAPI_TOKEN: string().min(1, {
-    message: 'STRAPI_TOKEN is required',
+    message: 'STRAPI_TOKEN is required'
   }),
   STRAPI_URL: string().min(1, {
-    message: 'STRAPI_URL is required',
+    message: 'STRAPI_URL is required'
   }),
   NOTION_TOKEN: string().min(1, {
-    message: 'NOTION_TOKEN is required',
+    message: 'NOTION_TOKEN is required'
   }),
   NOTION_DATABASE_ID: string().min(1, {
-    message: 'NOTION_DATABASE_ID is required',
-  }),
+    message: 'NOTION_DATABASE_ID is required'
+  })
 })
 
 type PrivateEnv = typeof privateSchema._type
@@ -25,7 +25,7 @@ try {
     STRAPI_TOKEN,
     STRAPI_URL,
     NOTION_TOKEN,
-    NOTION_DATABASE_ID,
+    NOTION_DATABASE_ID
   })
 } catch (error) {
   console.error(error)
@@ -36,5 +36,5 @@ export const env = {
   STRAPI_TOKEN: privateEnvResult.STRAPI_TOKEN,
   STRAPI_URL: privateEnvResult.STRAPI_URL,
   NOTION_TOKEN: privateEnvResult.NOTION_TOKEN,
-  NOTION_DATABASE_ID: privateEnvResult.NOTION_DATABASE_ID,
+  NOTION_DATABASE_ID: privateEnvResult.NOTION_DATABASE_ID
 }

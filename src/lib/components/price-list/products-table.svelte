@@ -6,18 +6,18 @@
     TableHeader,
     TableRow,
     TableHead,
-    TableCell,
-  } from "$lib/components/ui/table"
-  import { capitalize, formatNumber, getWhatsAppUrl } from "$lib/utils"
-  import { Button } from "../ui/button"
+    TableCell
+  } from '$lib/components/ui/table'
+  import { capitalize, formatNumber, getWhatsAppUrl } from '$lib/utils'
+  import { Button } from '../ui/button'
 
   const onContact = (text: string) => {
     window.open(
       getWhatsAppUrl({
-        text: text,
+        text: text
       }),
-      "_blank",
-      "noopener noreferrer"
+      '_blank',
+      'noopener noreferrer'
     )
   }
 </script>
@@ -35,14 +35,13 @@
       </TableRow>
     </TableHeader>
     <TableBody>
-      {#each products as product}
+      {#each products as product (product.id)}
         <TableRow class="last:border-b">
           <TableCell>{capitalize(product.brand)}</TableCell>
           <TableCell>{capitalize(product.model)}</TableCell>
           <TableCell>{product.storage}</TableCell>
           <TableCell>{product.ram}</TableCell>
-          <TableCell class="text-right">{formatNumber(product.price)}</TableCell
-          >
+          <TableCell class="text-right">{formatNumber(product.price)}</TableCell>
           <TableCell class="text-right">
             <Button
               onclick={() =>

@@ -1,6 +1,6 @@
 export const QUERY = {
   cursor: 'cursor',
-  brand: 'brand',
+  brand: 'brand'
 } as const
 
 export const BRANDS = [
@@ -22,5 +22,5 @@ export const BRANDS = [
   'valve',
   'honor',
   'oppo',
-  'xbox',
+  'xbox'
 ]

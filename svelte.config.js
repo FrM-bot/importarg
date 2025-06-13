@@ -1,5 +1,5 @@
 import adapter from '@sveltejs/adapter-netlify'
-import { vitePreprocess } from "@sveltejs/vite-plugin-svelte";
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte'
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -13,10 +13,10 @@ const config = {
     // See https://svelte.dev/docs/kit/adapters for more information about adapters.
     adapter: adapter(),
     alias: {
-      "$lib/*": "./src/lib/",
-	  "$response/*": "./src/response/"
-    },
-  },
-};
+      '$lib/*': './src/lib/',
+      '$response/*': './src/response/'
+    }
+  }
+}
 
-export default config;
+export default config

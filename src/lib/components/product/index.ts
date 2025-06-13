@@ -1,5 +1,3 @@
-import Images from "./images.svelte";
+import Images from './images.svelte'
 
-export {
-    Images
-}
+export { Images }

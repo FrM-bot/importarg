@@ -1,16 +1,14 @@
 <script lang="ts">
-  import "../app.css"
-  import Footer from "$lib/components/footer.svelte"
-  import Header from "$lib/components/header.svelte"
-  import "@fontsource-variable/onest"
-  import type { LayoutProps } from "./$types"
+  import '../app.css'
+  import Footer from '$lib/components/footer.svelte'
+  import Header from '$lib/components/header.svelte'
+  import '@fontsource-variable/onest'
+  import type { LayoutProps } from './$types'
 
   const { children, data }: LayoutProps = $props()
 
   const { head } = data
 </script>
-
-
 
 <Header title={head.title} />
 

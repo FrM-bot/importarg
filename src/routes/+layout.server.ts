@@ -1,13 +1,10 @@
-import { getExchangeRate } from '$lib/server/exchange-rate'
 import { getGlobalInfo } from '$lib/server/global'
-import { getHomeInfo } from '$lib/server/home'
-import { getProducts } from '$lib/server/products'
 import type { LayoutServerLoad } from './$types'
 
 export const config = {
   isr: {
     expiration: 43200
-  },
+  }
 }
 
 export const load: LayoutServerLoad = async () => {
@@ -15,10 +12,10 @@ export const load: LayoutServerLoad = async () => {
 
   return {
     head: {
-    title,
-    description,
-    favicon,
-    meta
-  }
+      title,
+      description,
+      favicon,
+      meta
+    }
   }
 }

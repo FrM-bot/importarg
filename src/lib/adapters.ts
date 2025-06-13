@@ -8,7 +8,7 @@ export function formatNotionDatabase(data: (typeof NotionDatabaseResponse)['resu
       ram: item.properties.ram.select.name,
       price: item.properties.price.number,
       model: item.properties.model.title[0].plain_text,
-      totalPrice: item.properties.total_price.formula.number,
+      totalPrice: item.properties.total_price.formula.number
     }
   })
 

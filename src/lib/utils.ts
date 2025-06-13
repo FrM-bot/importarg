@@ -1,16 +1,13 @@
 import { type ClassValue, clsx } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 import { env } from '././config/env'
+import type { Snippet } from 'svelte'
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-// biome-ignore lint/suspicious/noExplicitAny: <explanation>
-export type WithoutChild<T> = T extends { child?: any } ? Omit<T, 'child'> : T
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-// biome-ignore lint/suspicious/noExplicitAny: <explanation>
-export type WithoutChildren<T> = T extends { children?: any } ? Omit<T, 'children'> : T
+export type WithoutChild<T> = T extends { child?: Snippet } ? Omit<T, 'child'> : T
+export type WithoutChildren<T> = T extends { children?: Snippet } ? Omit<T, 'children'> : T
 export type WithoutChildrenOrChild<T> = WithoutChildren<WithoutChild<T>>
 export type WithElementRef<T, U extends HTMLElement = HTMLElement> = T & {
   ref?: U | null
@@ -20,7 +17,7 @@ export const formatDate = (
   date: number | Date | undefined,
   {
     locales = 'es-ES',
-    option = { dateStyle: 'long' },
+    option = { dateStyle: 'long' }
   }: {
     locales?: string | string[] | undefined
     option?: Intl.DateTimeFormatOptions | undefined
@@ -37,7 +34,7 @@ export const formatNumber = (
   value: number | bigint,
   {
     locales = 'de-DE',
-    option = { currency: 'ARS', style: 'currency' },
+    option = { currency: 'ARS', style: 'currency' }
   }: {
     locales?: string | string[] | undefined
     option?: Intl.NumberFormatOptions | undefined
